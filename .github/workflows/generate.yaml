@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
       - name: Generate blocked-names.txt
         run: deno --allow-net --allow-write generate.ts
       - name: Upload blocked-names.txt
@@ -19,4 +20,3 @@ jobs:
           name: file
           path: blocked-names.txt
           retention-days: 4
-          
