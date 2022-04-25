@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: denoland/setup-deno@v1
       - name: Generate blocked-names.txt
-        run: deno --allow-net --allow-write generate.ts
+        run: deno run --allow-net --allow-write generate.ts
       - name: Upload blocked-names.txt
         uses: actions/upload-artifact@v2
         with:
