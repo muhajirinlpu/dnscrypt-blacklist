@@ -1,0 +1,22 @@
+name: Generate files
+
+on: 
+  push: 
+    branches: [main]
+  schedule:
+    - cron: '0 7 */3 * *'
+
+jobs: 
+  generate: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate blocked-names.txt
+        run: deno --allow-net --allow-write generate.ts
+      - name: Upload blocked-names.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: file
+          path: blocked-names.txt
+          retention-days: 4
+          
