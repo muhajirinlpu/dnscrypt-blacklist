@@ -5,7 +5,11 @@ import {getHosts} from './utils/mod.ts'
     
     const filename = 'blocked-names.txt'
 
-    Deno.removeSync(filename)
+    try {
+        await Deno.stat(filename)
+        Deno.removeSync(filename)
+    // deno-lint-ignore no-empty
+    } catch(_error) {}
 
     for await (const host of hosts) {
         const encoder = new TextEncoder();
