@@ -15,8 +15,7 @@ jobs:
       - name: Generate blocked-names.txt
         run: deno run --allow-net --allow-write generate.ts
       - name: Upload blocked-names.txt
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: file
           path: blocked-names.txt
           retention-days: 4
