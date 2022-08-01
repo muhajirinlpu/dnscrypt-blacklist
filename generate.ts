@@ -11,11 +11,12 @@ import {getHosts} from './utils/mod.ts'
     // deno-lint-ignore no-empty
     } catch(_error) {}
 
+    const encoder = new TextEncoder();
+
     for await (const host of hosts) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(host);
-        
-        Deno.writeFile(filename, data, {
+        const data = encoder.encode(host + "\n");
+
+        await Deno.writeFile(filename, data, {
             append: true
         })
     }
