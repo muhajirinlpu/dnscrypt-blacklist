@@ -1,3 +1,5 @@
 cdn.jsdelivr.net
 t.co
 analytics.twitter.com
+www.binance.com
+ftp.binance.com
