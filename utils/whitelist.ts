@@ -13,5 +13,5 @@ export async function fetchWhitelist(): Promise<void> {
 }
 
 export function isWhitelist(domain: string): boolean {
-    return whitelist.indexOf(domain) !== -1
+    return whitelist.some((whitelistedDomain: string) => domain.indexOf(whitelistedDomain) !== -1)
 }
