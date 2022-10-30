@@ -10,8 +10,17 @@ export async function fetchWhitelist(): Promise<void> {
     const text: string[] = decoder.decode(buffer).split('\n')
 
     whitelist.push(...text)
+
+    whitelist.forEach((value, index) => {
+        whitelist[index] = value.trim()
+        if (value.length === 0) {
+            whitelist.splice(index, 1)
+        }
+    })
 }
 
-export function isWhitelist(domain: string): boolean {
-    return whitelist.some((whitelistedDomain: string) => domain.indexOf(whitelistedDomain) !== -1)
+export function isWhitelist(host: string): boolean {
+    const sanitizedHost = host.trim().match(/^\S*/)
+
+    return whitelist.some((whitelistedHost: string) => sanitizedHost?.indexOf(whitelistedHost) !== -1)
 }
