@@ -5,3 +5,5 @@ www.binance.com
 ftp.binance.com
 www.youtube-nocookie.com
 yastatic.net
+www.oracletutorial.com
+www.postgresqltutorial.com
